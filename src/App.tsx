@@ -10,6 +10,8 @@ import { ComingSoonPage } from "@/pages/ComingSoonPage";
 import { BubbleSortPage } from "@/pages/sorting/BubbleSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
+import { HelmetProvider } from "react-helmet-async";
+import { SEOHead } from "@/components/SEOHead";
 
 function AlgorithmRoute() {
   const { slug } = useParams();
@@ -24,11 +26,25 @@ function AlgorithmRoute() {
   }
 
   if (slug === "bubble-sort") {
-    return <BubbleSortPage />;
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <BubbleSortPage />
+      </>
+    );
   }
 
   return (
     <div className="p-12 text-center text-xl">
+      <SEOHead
+        title={`${algorithm.name} - Algos`}
+        description={algorithm.description}
+        url={`/algorithms/${algorithm.slug}`}
+      />
       Algorithm Visualization Placeholder for: {algorithm.name}
     </div>
   );
@@ -36,19 +52,21 @@ function AlgorithmRoute() {
 
 export function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <Router>
-        <div className="min-h-screen font-sans bg-background text-foreground flex flex-col">
-          <div className="flex-1">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/algorithms/:slug" element={<AlgorithmRoute />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+    <HelmetProvider>
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
+        <Router>
+          <div className="min-h-screen font-sans bg-background text-foreground flex flex-col">
+            <div className="flex-1">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/algorithms/:slug" element={<AlgorithmRoute />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </div>
           </div>
-        </div>
-      </Router>
-    </ThemeProvider>
+        </Router>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 

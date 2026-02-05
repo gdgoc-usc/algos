@@ -1,6 +1,7 @@
 import { algorithms, type AlgorithmCategory } from "@/algorithms";
 import { CardItem } from "@/components/card-item";
 import { ModeToggle } from "@/components/mode-toggle";
+import { SEOHead } from "@/components/SEOHead";
 
 export function HomePage() {
   const categories: AlgorithmCategory[] = [
@@ -16,6 +17,7 @@ export function HomePage() {
       <div className="absolute top-4 right-4">
         <ModeToggle />
       </div>
+      <SEOHead />
       <div className="text-center space-y-4">
         <h1 className="text-5xl font-bold tracking-tight">
           Algorithms Visualization
