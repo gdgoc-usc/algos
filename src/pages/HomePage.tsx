@@ -1,5 +1,6 @@
 import { algorithms, type AlgorithmCategory } from "@/algorithms";
 import { CardItem } from "@/components/card-item";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function HomePage() {
   const categories: AlgorithmCategory[] = [
@@ -11,7 +12,10 @@ export function HomePage() {
   ];
 
   return (
-    <div className="container mx-auto py-12 px-4 space-y-12">
+    <div className="container mx-auto py-12 px-4 space-y-12 relative">
+      <div className="absolute top-4 right-4">
+        <ModeToggle />
+      </div>
       <div className="text-center space-y-4">
         <h1 className="text-5xl font-bold tracking-tight">
           Algorithms Visualization

@@ -7,8 +7,8 @@ import {
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ComingSoonPage } from "@/pages/ComingSoonPage";
+import { BubbleSortPage } from "@/pages/sorting/BubbleSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
 import { algorithms } from "@/algorithms";
 
 function AlgorithmRoute() {
@@ -23,6 +23,10 @@ function AlgorithmRoute() {
     return <ComingSoonPage />;
   }
 
+  if (slug === "bubble-sort") {
+    return <BubbleSortPage />;
+  }
+
   return (
     <div className="p-12 text-center text-xl">
       Algorithm Visualization Placeholder for: {algorithm.name}
@@ -35,9 +39,6 @@ export function App() {
     <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <Router>
         <div className="min-h-screen font-sans bg-background text-foreground flex flex-col">
-          <header className="container mx-auto p-4 flex justify-end">
-            <ModeToggle />
-          </header>
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
