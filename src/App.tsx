@@ -1,7 +1,34 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 import { HomePage } from "@/pages/HomePage";
+import { NotFoundPage } from "@/pages/NotFoundPage";
+import { ComingSoonPage } from "@/pages/ComingSoonPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/mode-toggle";
+import { algorithms } from "@/algorithms";
+
+function AlgorithmRoute() {
+  const { slug } = useParams();
+  const algorithm = algorithms.find((a) => a.slug === slug);
+
+  if (!algorithm) {
+    return <NotFoundPage />;
+  }
+
+  if (!algorithm.implemented) {
+    return <ComingSoonPage />;
+  }
+
+  return (
+    <div className="p-12 text-center text-xl">
+      Algorithm Visualization Placeholder for: {algorithm.name}
+    </div>
+  );
+}
 
 export function App() {
   return (
@@ -14,14 +41,8 @@ export function App() {
           <div className="flex-1">
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route
-                path="/algorithms/:slug"
-                element={
-                  <div className="p-12 text-center text-xl">
-                    Algorithm Visualization Placeholder
-                  </div>
-                }
-              />
+              <Route path="/algorithms/:slug" element={<AlgorithmRoute />} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </div>
         </div>

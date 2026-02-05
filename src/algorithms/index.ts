@@ -10,6 +10,7 @@ export interface AlgorithmMetadata {
   name: string;
   category: AlgorithmCategory;
   description: string;
+  implemented?: boolean;
 }
 
 export const algorithms: AlgorithmMetadata[] = [
