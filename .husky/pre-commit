@@ -1,0 +1,2 @@
+echo "✨ Running pre-commit checks (Linting & Formatting)..."
+bunx lint-staged

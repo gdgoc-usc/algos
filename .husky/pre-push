@@ -1,0 +1,2 @@
+echo "🚀 Running pre-push checks (Type Checking)..."
+bun tsc -b
