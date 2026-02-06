@@ -78,5 +78,20 @@ export function useSound() {
     [playTone, isMuted],
   );
 
-  return { isMuted, setIsMuted, playTone, playValue };
+  const playSuccess = useCallback(() => {
+    if (isMuted) return;
+    // Play a rapid sweep from min to max frequency
+    const count = 20;
+    const stagger = 30;
+
+    for (let i = 0; i < count; i++) {
+      const progress = i / (count - 1);
+      const value = progress * 100; // 0 to 100
+      setTimeout(() => {
+        playValue(value, 100);
+      }, i * stagger);
+    }
+  }, [isMuted, playValue]);
+
+  return { isMuted, setIsMuted, playTone, playValue, playSuccess };
 }

@@ -28,7 +28,7 @@ export function InsertionSortPage() {
   const [frames, setFrames] = useState<SortingAnimationFrame[]>([]);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
-  const { isMuted, setIsMuted, playValue } = useSound();
+  const { isMuted, setIsMuted, playValue, playSuccess } = useSound();
 
   // Derived State
   const data = frames[currentFrame] || {
@@ -211,11 +211,23 @@ export function InsertionSortPage() {
         setCurrentFrame((prev) => prev + 1);
       }, delay);
     } else if (currentFrame >= frames.length - 1) {
+      if (isPlaying) {
+        // Just finished
+        playSuccess();
+      }
       setIsPlaying(false);
     }
 
     return () => clearTimeout(timeoutId);
-  }, [isPlaying, currentFrame, frames.length, speed, frames, playValue]);
+  }, [
+    isPlaying,
+    currentFrame,
+    frames.length,
+    speed,
+    frames,
+    playValue,
+    playSuccess,
+  ]);
 
   // Handlers
   const handleScrub = (val: number[]) => {

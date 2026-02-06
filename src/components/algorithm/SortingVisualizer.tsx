@@ -46,16 +46,23 @@ export function SortingVisualizer({
               <Tooltip delayDuration={0}>
                 <TooltipTrigger asChild>
                   <div
-                    className={`flex-1 rounded-t-md transition-all duration-75 ease-out cursor-pointer hover:brightness-110 ${
-                      isSorted
-                        ? "bg-green-500/80"
-                        : isBlue
-                          ? "bg-blue-500/80 scale-y-105 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
-                          : isActive
-                            ? "bg-red-500/80 scale-y-105 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
-                            : "bg-primary/80"
+                    className={`flex-1 rounded-t-md transition-all duration-75 ease-out cursor-pointer hover:brightness-110 origin-bottom ${
+                      data.completed
+                        ? "bg-green-500/80 animate-sorting-wave"
+                        : isSorted
+                          ? "bg-green-500/80"
+                          : isBlue
+                            ? "bg-blue-500/80 scale-y-105 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+                            : isActive
+                              ? "bg-red-500/80 scale-y-105 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                              : "bg-primary/80"
                     }`}
-                    style={{ height: `${value}%` }}
+                    style={{
+                      height: `${value}%`,
+                      animationDelay: data.completed
+                        ? `${idx * (600 / data.array.length)}ms`
+                        : "0s",
+                    }}
                   ></div>
                 </TooltipTrigger>
                 <TooltipContent side="top">
