@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Footer } from "./footer";
 
 interface LayoutProps {
   children: ReactNode;
@@ -15,6 +16,10 @@ export function Layout({ children }: LayoutProps) {
 
       <div className="flex-1 flex flex-col relative z-10 w-full">
         {children}
+      </div>
+
+      <div className="relative z-10">
+        <Footer />
       </div>
     </div>
   );

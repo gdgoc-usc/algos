@@ -1,4 +1,5 @@
 import { algorithms, type AlgorithmCategory } from "@/algorithms";
+import { GDG_INFO } from "@/lib/constants";
 import { CardItem } from "@/components/card-item";
 import { ModeToggle } from "@/components/mode-toggle";
 
@@ -7,7 +8,7 @@ import { ArrowRight, Code2 } from "lucide-react";
 
 export function HomePage() {
   const categories: AlgorithmCategory[] = [
-    "Arrays & Sorting",
+    "Sorting",
     "Searching",
     "Data Structures",
     "Graphs",
@@ -23,7 +24,7 @@ export function HomePage() {
       <main className="container mx-auto px-4 py-16 space-y-24 relative z-10">
         {/* Hero Section */}
         <div className="text-center space-y-8 py-12 relative">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/50 pb-4">
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-foreground pb-4">
             algos-visualizer
           </h1>
 
@@ -45,7 +46,7 @@ export function HomePage() {
               Start Learning <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href="https://github.com/gian-gg/algos"
+              href={GDG_INFO.github}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-secondary text-secondary-foreground font-medium transition-transform hover:scale-105 active:scale-95 border border-border/50"
@@ -57,19 +58,31 @@ export function HomePage() {
 
         {/* Algorithm Categories */}
         <div id="algorithms" className="space-y-20">
-          {categories.map((category) => {
+          {categories.map((category, index) => {
             const categoryAlgorithms = algorithms.filter(
               (algo) => algo.category === category,
             );
 
             if (categoryAlgorithms.length === 0) return null;
 
+            // Cycle through Google colors
+            const colors: ("blue" | "red" | "yellow" | "green")[] = [
+              "blue",
+              "red",
+              "yellow",
+              "green",
+            ];
+            const categoryColor = colors[index % colors.length];
+
             return (
               <div key={category} className="space-y-8">
                 <div className="flex items-center gap-4">
-                  <h2 className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+                  <h2 className="text-3xl font-bold tracking-tight text-foreground">
                     {category}
                   </h2>
+                  <div
+                    className={`h-1 w-12 rounded-full bg-google-${categoryColor}`}
+                  />
                   <div className="h-px flex-1 bg-gradient-to-r from-border to-transparent" />
                 </div>
 
@@ -81,6 +94,7 @@ export function HomePage() {
                       description={algo.description}
                       slug={algo.slug}
                       implemented={algo.implemented}
+                      color={categoryColor}
                     />
                   ))}
                 </div>

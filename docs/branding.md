@@ -8,13 +8,22 @@
 - **Fallback**: `sans-serif`
 - **Usage**: Headings, body text, and UI elements.
 
+## Identity
+
+**Google Developer Groups on Campus - University of San Carlos (GDG-USC)**
+
+- **Logo**: Official GDG Logo used in footer.
+- **Colors**: Core Google Brand colors (Blue, Red, Yellow, Green) used dynamically across categories.
+- **Footer**: "Made with love by the GDG-USC Community" (Hyperlinked to GitHub).
+
 ## Visual Style
 
 The design should be **clean, clarity-focused, and interactive**.
 
-- **Aesthetic**: Modern, "sketchy" but polished (inspired by Excalidraw).
-- **Goal**: Minimize cognitive load; visuals should directly support algorithm understanding.
-- **Components**: Use `shadcn/ui` for a consistent, professional foundation, customized to fit the Excalifont vibe.
+- **Aesthetic**: Modern, "sketchy" but polished (Glassmorphism + Excalifont).
+- **Hero Section**: Features a multi-color gradient text (Blue -> Red -> Yellow -> Green) for specific branding elements, while keeping the main title solid for readability.
+- **Categories**: Each algorithm category is color-coded to one of the 4 Google colors.
+- **Components**: Use `shadcn/ui` customized with GDG colors.
 
 ## UI/UX Principles
 

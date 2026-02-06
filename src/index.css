@@ -12,50 +12,56 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --google-blue: #4285f4;
+  --google-red: #db4437;
+  --google-yellow: #f4b400;
+  --google-green: #0f9d58;
+
   --background: oklch(0.985 0.005 60);
   --foreground: oklch(0.25 0.01 260);
   --card: oklch(0.985 0.005 60);
   --card-foreground: oklch(0.25 0.01 260);
   --popover: oklch(0.985 0.005 60);
   --popover-foreground: oklch(0.25 0.01 260);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary: var(--google-blue);
+  --primary-foreground: white;
   --secondary: oklch(0.96 0.005 60);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.96 0.005 60);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.96 0.005 60);
   --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.58 0.22 27);
+  --destructive: var(--google-red);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.809 0.105 251.813);
-  --chart-2: oklch(0.623 0.214 259.815);
-  --chart-3: oklch(0.546 0.245 262.881);
-  --chart-4: oklch(0.488 0.243 264.376);
-  --chart-5: oklch(0.424 0.199 265.638);
+  --ring: var(--google-blue);
+  --chart-1: var(--google-blue);
+  --chart-2: var(--google-red);
+  --chart-3: var(--google-yellow);
+  --chart-4: var(--google-green);
+  --chart-5: #ea4335;
   --radius: 0.625rem;
   --sidebar: oklch(0.985 0.005 60);
   --sidebar-foreground: oklch(0.25 0.01 260);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--google-blue);
+  --sidebar-primary-foreground: white;
   --sidebar-accent: oklch(0.96 0.005 60);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: var(--google-blue);
 }
 
 .dark {
-  --background: oklch(0.18 0.01 260);
-  --foreground: oklch(0.92 0.01 60);
-  --card: oklch(0.18 0.01 260);
-  --card-foreground: oklch(0.92 0.01 60);
-  --popover: oklch(0.18 0.01 260);
-  --popover-foreground: oklch(0.92 0.01 60);
-  --primary: oklch(0.87 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.22 0.01 260);
+  --background: oklch(0.18 0.02 260);
+  --foreground: oklch(0.95 0.01 60);
+  --card: oklch(0.2 0.02 260);
+  --card-foreground: oklch(0.95 0.01 60);
+  --popover: oklch(0.2 0.02 260);
+  --popover-foreground: oklch(0.95 0.01 60);
+  --primary: var(--google-blue);
+  --primary-foreground: white;
+  --secondary: oklch(0.2 0.01 260);
+
   --secondary-foreground: oklch(0.92 0.01 60);
   --muted: oklch(0.22 0.01 260);
   --muted-foreground: oklch(0.708 0 0);
@@ -96,6 +102,10 @@
   --color-chart-2: var(--chart-2);
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
+  --color-google-blue: var(--google-blue);
+  --color-google-red: var(--google-red);
+  --color-google-yellow: var(--google-yellow);
+  --color-google-green: var(--google-green);
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);

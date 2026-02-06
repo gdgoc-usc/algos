@@ -2,7 +2,7 @@ This is the regenerated **base project source of truth** (SOT) for your Algorith
 
 ## Product scope
 
-Build a learning-focused web app where students can **visualize algorithm operations** step-by-step, with controls to play, pause, step forward/back, reset, and adjust speed.
+Build a learning-focused web app where students can **visualize algorithm operations** step-by-step. The project is aligned with **Google Developer Groups (GDG) on Campus** branding.
 
 Each algorithm gets its own dedicated page that includes: a canvas visualization area, user inputs (e.g., array values, graph edges, stack operations), and action buttons that trigger/animate the algorithm’s operations.
 

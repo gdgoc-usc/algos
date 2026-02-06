@@ -37,11 +37,23 @@ For clickable glass elements, combine with `.glass-hover`:
 
 ## Colors
 
-- **Primary**: Deep/Vibrant Accent (Used for actions, highlights).
-- **Background**: Light/Dark neutral with slight noise or gradient.
-- **Text**: High contrast for readability against glass.
+The application uses the official **Google Brand Colors** to align with the GDG identity.
+
+- **Google Blue**: `#4285F4` (Primary Action, Arrays & Sorting)
+- **Google Red**: `#DB4437` (Destructive, Errors, Searching)
+- **Google Yellow**: `#F4B400` (Warnings, Charts, Data Structures)
+- **Google Green**: `#0F9D58` (Success, Visualizations, Graphs)
+
+### Theme Colors
+
+- **Primary**: Google Blue
+- **Background**:
+  - Light: `oklch(0.985 0.005 60)` (Soft Light Grey)
+  - Dark: `oklch(0.18 0.02 260)` (Softer Dark Grey/Blue - not pure black)
+- **Text**: Contrast optimized for readability.
 
 ## Typography
 
-- **Font**: Inter (Variable)
-- **Headings**: Bold, Tracking-tight.
+- **Font**: **Excalifont** (Hand-drawn style)
+- **Headings**: Tracking-tight, often used with gradients in Hero sections.
+- **Body**: Clean and legible.

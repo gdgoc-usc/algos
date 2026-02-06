@@ -1,5 +1,5 @@
 export type AlgorithmCategory =
-  | "Arrays & Sorting"
+  | "Sorting"
   | "Searching"
   | "Data Structures"
   | "Graphs"
@@ -14,11 +14,11 @@ export interface AlgorithmMetadata {
 }
 
 export const algorithms: AlgorithmMetadata[] = [
-  // Arrays & Sorting
+  // Sorting
   {
     slug: "bubble-sort",
     name: "Bubble Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description:
       "Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
     implemented: true,
@@ -26,7 +26,7 @@ export const algorithms: AlgorithmMetadata[] = [
   {
     slug: "selection-sort",
     name: "Selection Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description:
       "Divides the input list into two parts: a sorted sublist of items which is built up from left to right...",
     implemented: true,
@@ -34,27 +34,27 @@ export const algorithms: AlgorithmMetadata[] = [
   {
     slug: "insertion-sort",
     name: "Insertion Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description: "Builds the final sorted array (or list) one item at a time.",
     implemented: true,
   },
   {
     slug: "merge-sort",
     name: "Merge Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description:
       "An efficient, stable, comparison-based, divide and conquer sorting algorithm.",
   },
   {
     slug: "quick-sort",
     name: "Quick Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description: "An efficient, general-purpose sorting algorithm.",
   },
   {
     slug: "heap-sort",
     name: "Heap Sort",
-    category: "Arrays & Sorting",
+    category: "Sorting",
     description:
       "A comparison-based sorting technique based on Binary Heap data structure.",
   },
