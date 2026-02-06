@@ -1,4 +1,5 @@
 import { MonitorPlay } from "lucide-react";
+import { Card } from "@/components/ui/card";
 
 interface AlgorithmDetailsProps {
   timeComplexity: string;
@@ -12,7 +13,7 @@ export function AlgorithmDetails({
   description,
 }: AlgorithmDetailsProps) {
   return (
-    <div className="p-6 rounded-xl border bg-muted/20 space-y-4">
+    <Card className="p-6 space-y-4">
       <h3 className="font-semibold flex items-center gap-2">
         <MonitorPlay className="w-4 h-4" />
         Algorithm Details
@@ -28,6 +29,6 @@ export function AlgorithmDetails({
         </p>
         <p>{description}</p>
       </div>
-    </div>
+    </Card>
   );
 }

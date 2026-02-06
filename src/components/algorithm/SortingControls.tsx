@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
+import { Card } from "@/components/ui/card";
 import {
   Play,
   Pause,
@@ -45,7 +46,7 @@ export function SortingControls({
 }: SortingControlsProps) {
   return (
     <div className="w-full lg:w-80 space-y-4">
-      <div className="p-6 rounded-xl border bg-card text-card-foreground shadow-sm space-y-6">
+      <Card className="p-6 space-y-6">
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <span className="font-semibold">Controls</span>
@@ -136,7 +137,7 @@ export function SortingControls({
             Next <ChevronRight className="w-4 h-4 ml-1" />
           </Button>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

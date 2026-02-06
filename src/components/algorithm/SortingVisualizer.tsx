@@ -33,7 +33,7 @@ export function SortingVisualizer({
       </div>
 
       <div
-        className={`w-full bg-muted/30 rounded-xl border p-4 lg:p-6 flex items-end justify-center h-[50vh] min-h-[300px] lg:h-[650px] relative overflow-hidden ${
+        className={`w-full glass rounded-xl p-4 lg:p-6 flex items-end justify-center h-[50vh] min-h-[300px] lg:h-[650px] relative overflow-hidden ${
           arraySize[0] > 60 ? "gap-px" : arraySize[0] > 30 ? "gap-px" : "gap-1"
         }`}
       >

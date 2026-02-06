@@ -78,20 +78,22 @@ function AlgorithmRoute() {
   );
 }
 
+import { Layout } from "@/components/layout";
+
+// ... existing imports
+
 export function App() {
   return (
     <HelmetProvider>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
         <Router>
-          <div className="min-h-screen font-sans bg-background text-foreground flex flex-col">
-            <div className="flex-1">
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/algorithms/:slug" element={<AlgorithmRoute />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Routes>
-            </div>
-          </div>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/algorithms/:slug" element={<AlgorithmRoute />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Layout>
         </Router>
       </ThemeProvider>
     </HelmetProvider>
