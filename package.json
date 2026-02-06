@@ -10,7 +10,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "ssh -t -p$DEPLOY_PORT $DEPLOY_USER@$DEPLOY_HOST 'cd $DEPLOY_PATH && git pull && npm install && npm run build && npx pm2 reload all'"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",

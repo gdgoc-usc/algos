@@ -20,5 +20,6 @@
 
 ## Infrastructure
 
-- **Package Manager**: `npm` (or `bun` if preferred locally, but `npm` is standard).
-- **Deployment**: Static hosting (GitHub Pages, Vercel, Netlify).
+- **Package Manager**: **Bun** (Preferred/Required).
+- **CI/CD**: GitHub Actions (Quality Checks) + Husky (Git Hooks).
+- **Deployment**: Manual SSH Code Push via `bun run deploy` (Remote uses `npm`).

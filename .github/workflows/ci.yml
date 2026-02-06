@@ -1,0 +1,35 @@
+name: CI Quality Checks
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  quality:
+    name: Lint, Format, Typecheck, Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Lint (ESLint)
+        run: bun run lint
+
+      - name: Format Check (Prettier)
+        run: bunx prettier --check .
+
+      - name: Typecheck
+        run: bun tsc -b
+
+      - name: Build
+        run: bun run build
