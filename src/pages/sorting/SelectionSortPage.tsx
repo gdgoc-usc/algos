@@ -14,11 +14,11 @@ const algorithmDetails = {
   timeComplexity: "O(n²)",
   spaceComplexity: "O(1)",
   description:
-    "Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order.",
+    "Selection Sort divides the input list into two parts: a sorted sublist of items which is built up from left to right at the front (left) of the list and a sublist of the remaining unsorted items that occupy the rest of the list.",
 };
 
-export function BubbleSortPage() {
-  const metadata = algorithms.find((a) => a.slug === "bubble-sort");
+export function SelectionSortPage() {
+  const metadata = algorithms.find((a) => a.slug === "selection-sort");
 
   // Settings
   const [arraySize, setArraySize] = useState([20]);
@@ -55,7 +55,7 @@ export function BubbleSortPage() {
       sortedIndices: [],
       stats: { comparisons: 0, swaps: 0 },
       completed: false,
-      description: "Starting Bubble Sort initialized with random values.",
+      description: "Starting Selection Sort initialized with random values.",
     });
 
     const arr = [...newArray];
@@ -65,39 +65,67 @@ export function BubbleSortPage() {
     const sortedIndices: number[] = [];
 
     for (let i = 0; i < n - 1; i++) {
-      let swapped = false;
-      for (let j = 0; j < n - i - 1; j++) {
-        // Comparison Frame
+      let minIdx = i;
+
+      // Mark current minimum search start
+      framesList.push({
+        array: [...arr],
+        activeIndices: [i],
+        blueIndices: [minIdx],
+        sortedIndices: [...sortedIndices],
+        stats: { comparisons, swaps },
+        completed: false,
+        description: `Current minimum is at index ${minIdx} (value: ${arr[minIdx]})`,
+      });
+
+      for (let j = i + 1; j < n; j++) {
         comparisons++;
+
+        // Comparison Frame
         framesList.push({
           array: [...arr],
-          activeIndices: [j, j + 1],
+          activeIndices: [j],
+          blueIndices: [minIdx],
           sortedIndices: [...sortedIndices],
           stats: { comparisons, swaps },
           completed: false,
-          description: `Comparing ${arr[j]} and ${arr[j + 1]}`,
+          description: `Checking if ${arr[j]} < ${arr[minIdx]}`,
         });
 
-        if (arr[j] > arr[j + 1]) {
-          // Swap logic
-          const temp = arr[j];
-          arr[j] = arr[j + 1];
-          arr[j + 1] = temp;
-          swaps++;
-          swapped = true;
-
-          // Swap Frame (Post-swap state)
+        if (arr[j] < arr[minIdx]) {
+          minIdx = j;
+          // Found new minimum
           framesList.push({
             array: [...arr],
-            activeIndices: [j, j + 1],
+            activeIndices: [i],
+            blueIndices: [minIdx],
             sortedIndices: [...sortedIndices],
             stats: { comparisons, swaps },
             completed: false,
-            description: `Swapped ${arr[j]} and ${arr[j + 1]}`,
+            description: `Found new minimum: ${arr[minIdx]} at index ${minIdx}`,
           });
         }
       }
-      sortedIndices.push(n - i - 1);
+
+      // Swap if needed
+      if (minIdx !== i) {
+        const temp = arr[i];
+        arr[i] = arr[minIdx];
+        arr[minIdx] = temp;
+        swaps++;
+
+        framesList.push({
+          array: [...arr],
+          activeIndices: [i],
+          blueIndices: [minIdx],
+          sortedIndices: [...sortedIndices],
+          stats: { comparisons, swaps },
+          completed: false,
+          description: `Swapped minimum ${arr[i]} with ${arr[minIdx]} at index ${i}`,
+        });
+      }
+
+      sortedIndices.push(i);
 
       // End of Pass Frame
       framesList.push({
@@ -106,15 +134,8 @@ export function BubbleSortPage() {
         sortedIndices: [...sortedIndices],
         stats: { comparisons, swaps },
         completed: false,
-        description: `${arr[n - i - 1]} is now sorted.`,
+        description: `${arr[i]} is now sorted at position ${i}.`,
       });
-
-      if (!swapped) {
-        // Optimization: fill remaining
-        const remaining = Array.from({ length: n - i - 1 }, (_, idx) => idx);
-        sortedIndices.push(...remaining);
-        break;
-      }
     }
 
     // Final sorted remainder
@@ -148,9 +169,11 @@ export function BubbleSortPage() {
     if (isPlaying && currentFrame < frames.length - 1) {
       // Audio Effect
       if (frames[currentFrame + 1]?.activeIndices) {
-        const [, b] = frames[currentFrame + 1].activeIndices!;
-        const value = frames[currentFrame + 1].array[b];
-        playValue(value, 110); // 110Hz base
+        const indices = frames[currentFrame + 1].activeIndices;
+        if (indices && indices.length > 0) {
+          const value = frames[currentFrame + 1].array[indices[0]];
+          playValue(value, 110);
+        }
       }
 
       // Calculate delay: Speed 1-100 -> Delay 500ms-10ms
@@ -197,7 +220,7 @@ export function BubbleSortPage() {
   return (
     <div className="container mx-auto py-6 px-4 space-y-8 min-h-screen flex flex-col">
       <AlgorithmPageHeader
-        title={metadata?.name || "Bubble Sort"}
+        title={metadata?.name || "Selection Sort"}
         description={metadata?.description}
         isMuted={isMuted}
         onToggleMute={() => setIsMuted(!isMuted)}

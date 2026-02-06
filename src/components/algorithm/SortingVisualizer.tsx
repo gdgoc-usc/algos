@@ -40,6 +40,7 @@ export function SortingVisualizer({
         {data.array.map((value, idx) => {
           const isSorted = data.sortedIndices.includes(idx);
           const isActive = data.activeIndices?.includes(idx);
+          const isBlue = data.blueIndices?.includes(idx);
           return (
             <TooltipProvider key={idx}>
               <Tooltip delayDuration={0}>
@@ -48,9 +49,11 @@ export function SortingVisualizer({
                     className={`flex-1 rounded-t-md transition-all duration-75 ease-out cursor-pointer hover:brightness-110 ${
                       isSorted
                         ? "bg-green-500/80"
-                        : isActive
-                          ? "bg-red-500/80 scale-y-105 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
-                          : "bg-primary/80"
+                        : isBlue
+                          ? "bg-blue-500/80 scale-y-105 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
+                          : isActive
+                            ? "bg-red-500/80 scale-y-105 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
+                            : "bg-primary/80"
                     }`}
                     style={{ height: `${value}%` }}
                   ></div>

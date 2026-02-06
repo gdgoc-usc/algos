@@ -8,6 +8,7 @@ import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ComingSoonPage } from "@/pages/ComingSoonPage";
 import { BubbleSortPage } from "@/pages/sorting/BubbleSortPage";
+import { SelectionSortPage } from "@/pages/sorting/SelectionSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
 import { HelmetProvider } from "react-helmet-async";
@@ -34,6 +35,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <BubbleSortPage />
+      </>
+    );
+  }
+
+  if (slug === "selection-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <SelectionSortPage />
       </>
     );
   }

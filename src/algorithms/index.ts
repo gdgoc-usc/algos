@@ -29,6 +29,7 @@ export const algorithms: AlgorithmMetadata[] = [
     category: "Arrays & Sorting",
     description:
       "Divides the input list into two parts: a sorted sublist of items which is built up from left to right...",
+    implemented: true,
   },
   {
     slug: "insertion-sort",
