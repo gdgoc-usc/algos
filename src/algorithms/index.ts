@@ -36,6 +36,7 @@ export const algorithms: AlgorithmMetadata[] = [
     name: "Insertion Sort",
     category: "Arrays & Sorting",
     description: "Builds the final sorted array (or list) one item at a time.",
+    implemented: true,
   },
   {
     slug: "merge-sort",
