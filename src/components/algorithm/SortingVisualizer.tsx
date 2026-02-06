@@ -55,7 +55,7 @@ export function SortingVisualizer({
                             ? "bg-blue-500/80 scale-y-105 shadow-[0_0_10px_rgba(59,130,246,0.5)]"
                             : isActive
                               ? "bg-red-500/80 scale-y-105 shadow-[0_0_10px_rgba(239,68,68,0.5)]"
-                              : "bg-primary/80"
+                              : "bg-gray-500/80"
                     }`}
                     style={{
                       height: `${value}%`,
