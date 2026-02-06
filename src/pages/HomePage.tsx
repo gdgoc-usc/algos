@@ -80,6 +80,7 @@ export function HomePage() {
                       title={algo.name}
                       description={algo.description}
                       slug={algo.slug}
+                      implemented={algo.implemented}
                     />
                   ))}
                 </div>

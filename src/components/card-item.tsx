@@ -6,6 +6,7 @@ interface CardItemProps {
   title: string;
   description: string;
   slug: string;
+  implemented?: boolean;
   className?: string;
 }
 
@@ -13,6 +14,7 @@ export function CardItem({
   title,
   description,
   slug,
+  implemented,
   className,
 }: CardItemProps) {
   return (
@@ -27,17 +29,24 @@ export function CardItem({
       >
         <div className="flex flex-col h-full justify-between space-y-4 relative z-10">
           <div className="space-y-3">
-            <h3 className="font-bold text-xl tracking-tight flex items-center justify-between group-hover:text-primary transition-colors">
+            <h3 className="font-bold text-xl tracking-tight group-hover:text-primary transition-colors">
               {title}
             </h3>
+
             <p className="text-muted-foreground text-sm leading-relaxed line-clamp-3">
               {description}
             </p>
           </div>
 
           <div className="pt-4 flex items-center text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">
-            <span>Visualize</span>
-            <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+            {implemented ? (
+              <>
+                <span>Visualize</span>
+                <ArrowRight className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+              </>
+            ) : (
+              <span>Coming Soon</span>
+            )}
           </div>
         </div>
       </div>
