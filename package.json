@@ -2,6 +2,8 @@
   "name": "algos",
   "private": true,
   "version": "0.0.0",
+  "author": "GDG on Campus - University of San Carlos",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "dev": "vite",
