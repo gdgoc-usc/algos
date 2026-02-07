@@ -1,2 +1,4 @@
 echo "✨ Running pre-commit checks (Linting & Formatting)..."
 bunx lint-staged
+bun run lint
+bunx prettier --check .

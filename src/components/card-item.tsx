@@ -26,13 +26,6 @@ export function CardItem({
     green: "hover:border-google-green/50 group-hover:text-google-green",
   };
 
-  const arrowStyles = {
-    blue: "text-google-blue",
-    red: "text-google-red",
-    yellow: "text-google-yellow",
-    green: "text-google-green",
-  };
-
   return (
     <Link
       to={`/algorithms/${slug}`}

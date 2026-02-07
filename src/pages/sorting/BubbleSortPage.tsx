@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { algorithms } from "@/algorithms";
 import { useSound } from "@/hooks/use-sound";
 import type { SortingAnimationFrame } from "@/types/sorting";
@@ -23,22 +23,7 @@ export function BubbleSortPage() {
   // Settings
   const [arraySize, setArraySize] = useState([20]);
   const [speed, setSpeed] = useState([50]);
-
-  // Animation State
-  const [frames, setFrames] = useState<SortingAnimationFrame[]>([]);
-  const [currentFrame, setCurrentFrame] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const { isMuted, setIsMuted, playValue, playSuccess } = useSound();
-
-  // Derived State
-  const data = frames[currentFrame] || {
-    array: [],
-    activeIndices: null,
-    sortedIndices: [],
-    stats: { comparisons: 0, swaps: 0 },
-    completed: false,
-    description: "Initializing...",
-  };
+  const [resetKey, setResetKey] = useState(0);
 
   // Generate Frames Logic
   const generateFrames = useCallback((size: number) => {
@@ -133,13 +118,36 @@ export function BubbleSortPage() {
     return framesList;
   }, []);
 
+  // Animation State
+  const frames = useMemo(
+    () => generateFrames(arraySize[0]),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [arraySize, resetKey, generateFrames],
+  );
+  const [currentFrame, setCurrentFrame] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const { isMuted, setIsMuted, playValue, playSuccess } = useSound();
+
+  // Derived State
+  const data = frames[currentFrame] || {
+    array: [],
+    activeIndices: null,
+    sortedIndices: [],
+    stats: { comparisons: 0, swaps: 0 },
+    completed: false,
+    description: "Initializing...",
+  };
+
   // Initialization
-  useEffect(() => {
-    const newFrames = generateFrames(arraySize[0]);
-    setFrames(newFrames);
+  const [prevArraySize, setPrevArraySize] = useState(arraySize);
+  const [prevResetKey, setPrevResetKey] = useState(resetKey);
+
+  if (arraySize !== prevArraySize || resetKey !== prevResetKey) {
+    setPrevArraySize(arraySize);
+    setPrevResetKey(resetKey);
     setCurrentFrame(0);
     setIsPlaying(false);
-  }, [arraySize, generateFrames]);
+  }
 
   // Playback Loop
   useEffect(() => {
@@ -160,11 +168,12 @@ export function BubbleSortPage() {
         setCurrentFrame((prev) => prev + 1);
       }, delay);
     } else if (currentFrame >= frames.length - 1) {
-      if (isPlaying) {
-        // Just finished
-        playSuccess();
-      }
-      setIsPlaying(false);
+      setTimeout(() => {
+        if (isPlaying) {
+          playSuccess();
+        }
+        setIsPlaying(false);
+      }, 0);
     }
 
     return () => clearTimeout(timeoutId);
@@ -200,10 +209,7 @@ export function BubbleSortPage() {
   };
 
   const handleRandomize = () => {
-    const newFrames = generateFrames(arraySize[0]);
-    setFrames(newFrames);
-    setCurrentFrame(0);
-    setIsPlaying(false);
+    setResetKey((prev) => prev + 1);
   };
 
   return (
