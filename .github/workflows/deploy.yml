@@ -21,23 +21,28 @@ jobs:
           port: ${{ secrets.DCISM_PORT }}
           timeout: 60s
           script: |
-            # 1. Navigate and Update
-            cd ~/${{ secrets.DCISM_SUBDOMAIN }} || exit 1
-            git reset --hard && git clean -fd && git pull origin main
+            set -e
 
-            # 2. Install
+            APP_DIR="$HOME/${{ secrets.DCISM_SUBDOMAIN }}"
+            PORT="${{ secrets.APP_PORT }}"
+
+            cd "$APP_DIR" || exit 1
+
+            echo "==> Update repo"
+            git fetch --all
+            git reset --hard origin/main
+            git clean -fd
+
+            echo "==> Install deps"
             npm install --legacy-peer-deps
 
-            # 3. Memory Management
-            npx pm2 stop algos || true
+            echo "==> Build"
+            npx tsc -b --noCheck
+            npx vite build
 
-            # 4. Build
-            npx tsc -b --noCheck && npx vite build
+            echo "==> Restart PM2 (serve dist)"
+            npx pm2 delete algos > /dev/null 2>&1 || true
+            npx pm2 start "npx serve -s dist -l $PORT" --name "algos" > /dev/null 2>&1
+            npx pm2 save > /dev/null 2>&1
 
-            # 5. Sync and Reload
-            rsync -avz --delete ./dist/ ~/${{ secrets.DCISM_SUBDOMAIN }}/
-
-            # Restart using serve for the frontend SPA
-            npx pm2 reload algos || npx pm2 start "npx serve -s dist -p ${{ secrets.APP_PORT }}" --name "algos"
-
-            echo "✅ Algos Deployment Successful"
+            echo "✅ Deployment Successful"
