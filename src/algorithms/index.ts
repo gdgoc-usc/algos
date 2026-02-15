@@ -39,6 +39,14 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "shell-sort",
+    name: "Shell Sort",
+    category: "Sorting",
+    description:
+      "A generalized insertion sort that starts with large gaps and progressively reduces them to finish with a final insertion pass.",
+    implemented: true,
+  },
+  {
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",
