@@ -11,6 +11,7 @@ import { BubbleSortPage } from "@/pages/sorting/BubbleSortPage";
 import { SelectionSortPage } from "@/pages/sorting/SelectionSortPage";
 import { InsertionSortPage } from "@/pages/sorting/InsertionSortPage";
 import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
+import { CombSortPage } from "@/pages/sorting/CombSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
 import { HelmetProvider } from "react-helmet-async";
@@ -76,6 +77,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <ShellSortPage />
+      </>
+    );
+  }
+
+  if (slug === "comb-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <CombSortPage />
       </>
     );
   }
