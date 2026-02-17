@@ -47,6 +47,14 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "comb-sort",
+    name: "Comb Sort",
+    category: "Sorting",
+    description:
+      "An improved Bubble Sort that compares elements at a shrinking gap to eliminate turtles faster.",
+    implemented: true,
+  },
+  {
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",
