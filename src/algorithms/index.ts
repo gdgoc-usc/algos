@@ -39,6 +39,14 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "heap-sort",
+    name: "Heap Sort",
+    category: "Sorting",
+    description:
+      "A comparison-based sorting technique based on Binary Heap data structure.",
+    implemented: true,
+  },
+  {
     slug: "shell-sort",
     name: "Shell Sort",
     category: "Sorting",
@@ -66,13 +74,6 @@ export const algorithms: AlgorithmMetadata[] = [
     name: "Quick Sort",
     category: "Sorting",
     description: "An efficient, general-purpose sorting algorithm.",
-  },
-  {
-    slug: "heap-sort",
-    name: "Heap Sort",
-    category: "Sorting",
-    description:
-      "A comparison-based sorting technique based on Binary Heap data structure.",
   },
 
   // Searching
