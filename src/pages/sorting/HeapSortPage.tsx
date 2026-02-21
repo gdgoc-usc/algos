@@ -5,9 +5,11 @@ import type { SortingAnimationFrame } from "@/types/sorting";
 
 import { AlgorithmPageHeader } from "@/components/algorithm/AlgorithmPageHeader";
 import { SortingVisualizer } from "@/components/algorithm/SortingVisualizer";
+import { HeapTreeVisualizer } from "@/components/algorithm/HeapTreeVisualizer";
 import { SortingControls } from "@/components/algorithm/SortingControls";
 import { SortingStats } from "@/components/algorithm/SortingStats";
 import { AlgorithmDetails } from "@/components/algorithm/AlgorithmDetails";
+import { Button } from "@/components/ui/button";
 
 const algorithmDetails = {
   timeComplexity: "Best/Average/Worst O(n log n)",
@@ -45,6 +47,8 @@ const createTailSortedIndices = (
     (_, offset) => startIndex + offset,
   );
 
+type ViewMode = "bars" | "tree";
+
 export function HeapSortPage() {
   const metadata = algorithms.find(
     (algorithm) => algorithm.slug === "heap-sort",
@@ -53,6 +57,7 @@ export function HeapSortPage() {
   const [arraySize, setArraySize] = useState([20]);
   const [speed, setSpeed] = useState([50]);
   const [resetKey, setResetKey] = useState(0);
+  const [viewMode, setViewMode] = useState<ViewMode>("bars");
 
   const generateFrames = useCallback((size: number) => {
     const initialArray = createRandomArray(size);
@@ -310,13 +315,41 @@ export function HeapSortPage() {
       />
 
       <div className="flex-1 flex flex-col lg:flex-row gap-8">
-        <SortingVisualizer
-          data={data}
-          arraySize={arraySize}
-          currentFrame={currentFrame}
-          totalFrames={frames.length}
-          onScrub={handleScrub}
-        />
+        <div className="flex-1 w-full flex flex-col gap-3">
+          <div className="flex items-center gap-2">
+            <Button
+              variant={viewMode === "bars" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode("bars")}
+            >
+              Bars
+            </Button>
+            <Button
+              variant={viewMode === "tree" ? "default" : "outline"}
+              size="sm"
+              onClick={() => setViewMode("tree")}
+            >
+              Tree
+            </Button>
+          </div>
+
+          {viewMode === "bars" ? (
+            <SortingVisualizer
+              data={data}
+              arraySize={arraySize}
+              currentFrame={currentFrame}
+              totalFrames={frames.length}
+              onScrub={handleScrub}
+            />
+          ) : (
+            <HeapTreeVisualizer
+              data={data}
+              currentFrame={currentFrame}
+              totalFrames={frames.length}
+              onScrub={handleScrub}
+            />
+          )}
+        </div>
 
         <div className="w-full lg:w-80 space-y-4">
           <SortingStats
