@@ -10,7 +10,7 @@ jobs:
   build:
     name: Build and Run
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push' && github.event.workflow_run.head_branch == 'main' }}
     steps:
       - name: Build and Run Algos
         uses: appleboy/ssh-action@v1.2.0
