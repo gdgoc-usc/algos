@@ -25,8 +25,10 @@ export function SortingVisualizer({
 }: SortingVisualizerProps) {
   return (
     <div className="flex-1 w-full flex flex-col gap-4">
-      <div className="flex items-center justify-between">
-        <span className="text-sm font-medium">{data.description}</span>
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-2">
+        <span className="text-sm font-medium leading-5 break-words min-h-10 max-h-10 overflow-hidden sm:min-h-0 sm:max-h-none">
+          {data.description}
+        </span>
         <Badge variant="secondary" className="font-mono text-xs">
           Step {currentFrame + 1} / {totalFrames}
         </Badge>

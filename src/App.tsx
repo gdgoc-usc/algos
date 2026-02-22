@@ -10,6 +10,7 @@ import { ComingSoonPage } from "@/pages/ComingSoonPage";
 import { BubbleSortPage } from "@/pages/sorting/BubbleSortPage";
 import { SelectionSortPage } from "@/pages/sorting/SelectionSortPage";
 import { InsertionSortPage } from "@/pages/sorting/InsertionSortPage";
+import { HeapSortPage } from "@/pages/sorting/HeapSortPage";
 import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
 import { CombSortPage } from "@/pages/sorting/CombSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
@@ -64,6 +65,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <InsertionSortPage />
+      </>
+    );
+  }
+
+  if (slug === "heap-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <HeapSortPage />
       </>
     );
   }
