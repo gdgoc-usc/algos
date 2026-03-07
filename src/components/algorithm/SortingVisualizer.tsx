@@ -47,6 +47,17 @@ const getBarHeightPercent = (value: number, maxValue: number): string => {
   return `${Math.max((value / maxValue) * 100, 8)}%`;
 };
 
+const getLevelMaxValue = (
+  level: VisualizationLevel,
+  data: SortingAnimationFrame,
+): number => {
+  if (level.key === "buckets") {
+    return Math.max(data.array.length, 1);
+  }
+
+  return Math.max(...level.values, 1);
+};
+
 const getLevelTitle = (level: VisualizationLevel): string => {
   if (
     level.key === "buckets" &&
@@ -109,7 +120,7 @@ export function SortingVisualizer({
       ];
 
   const renderBars = (level: VisualizationLevel) => {
-    const maxValue = Math.max(...level.values, 1);
+    const maxValue = getLevelMaxValue(level, data);
 
     return level.values.map((value, idx) => {
       const isSorted = level.sortedIndices?.includes(idx) || false;
