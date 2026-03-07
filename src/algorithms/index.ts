@@ -79,6 +79,34 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "strand-sort",
+    name: "Strand Sort",
+    category: "Sorting",
+    description:
+      "A sorting algorithm that repeatedly extracts increasing strands and merges them into a sorted result.",
+  },
+  {
+    slug: "radix-sort",
+    name: "Radix Sort",
+    category: "Sorting",
+    description:
+      "A non-comparison sort that processes numbers digit by digit from least to most significant position.",
+  },
+  {
+    slug: "bucket-sort",
+    name: "Bucket Sort",
+    category: "Sorting",
+    description:
+      "Distributes values into buckets, sorts each bucket, then concatenates them into a final sorted array.",
+  },
+  {
+    slug: "tournament-sort",
+    name: "Tournament Sort",
+    category: "Sorting",
+    description:
+      "Builds a tournament tree to repeatedly select the minimum element and produce a sorted sequence.",
+  },
+  {
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",
