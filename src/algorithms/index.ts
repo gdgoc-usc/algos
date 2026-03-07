@@ -63,6 +63,14 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "counting-sort",
+    name: "Counting Sort",
+    category: "Sorting",
+    description:
+      "A non-comparison sorting algorithm that counts occurrences of each value and rebuilds the array in order.",
+    implemented: true,
+  },
+  {
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",

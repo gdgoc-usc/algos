@@ -3,6 +3,16 @@ export type SortingAnimationFrame = {
   activeIndices: number[] | null;
   blueIndices?: number[];
   sortedIndices: number[];
+  bucketValues?: number[];
+  bucketRangeStart?: number;
+  bucketRangeEnd?: number;
+  bucketActiveIndices?: number[];
+  bucketBlueIndices?: number[];
+  bucketSortedIndices?: number[];
+  outputValues?: number[];
+  outputActiveIndices?: number[];
+  outputBlueIndices?: number[];
+  outputSortedIndices?: number[];
   stats: { comparisons: number; swaps: number };
   completed: boolean;
   description: string;
