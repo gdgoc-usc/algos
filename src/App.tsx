@@ -14,6 +14,7 @@ import { HeapSortPage } from "@/pages/sorting/HeapSortPage";
 import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
 import { CombSortPage } from "@/pages/sorting/CombSortPage";
 import { CountingSortPage } from "@/pages/sorting/CountingSortPage";
+import { GnomeSortPage } from "@/pages/sorting/GnomeSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
 import { HelmetProvider } from "react-helmet-async";
@@ -118,6 +119,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <CountingSortPage />
+      </>
+    );
+  }
+
+  if (slug === "gnome-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <GnomeSortPage />
       </>
     );
   }
