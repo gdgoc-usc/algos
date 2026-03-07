@@ -13,6 +13,7 @@ import { InsertionSortPage } from "@/pages/sorting/InsertionSortPage";
 import { HeapSortPage } from "@/pages/sorting/HeapSortPage";
 import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
 import { CombSortPage } from "@/pages/sorting/CombSortPage";
+import { CountingSortPage } from "@/pages/sorting/CountingSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
 import { HelmetProvider } from "react-helmet-async";
@@ -104,6 +105,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <CombSortPage />
+      </>
+    );
+  }
+
+  if (slug === "counting-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <CountingSortPage />
       </>
     );
   }
