@@ -71,6 +71,14 @@ export const algorithms: AlgorithmMetadata[] = [
     implemented: true,
   },
   {
+    slug: "gnome-sort",
+    name: "Gnome Sort",
+    category: "Sorting",
+    description:
+      "A simple sorting algorithm that moves out-of-order elements backward by swapping adjacent values until they are in place.",
+    implemented: true,
+  },
+  {
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",
