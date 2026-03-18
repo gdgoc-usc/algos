@@ -105,6 +105,7 @@ export const algorithms: AlgorithmMetadata[] = [
     category: "Sorting",
     description:
       "Builds a tournament tree to repeatedly select the minimum element and produce a sorted sequence.",
+    implemented: true,
   },
   {
     slug: "merge-sort",
