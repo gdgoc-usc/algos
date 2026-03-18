@@ -13,6 +13,14 @@ export type SortingAnimationFrame = {
   outputActiveIndices?: number[];
   outputBlueIndices?: number[];
   outputSortedIndices?: number[];
+  tournamentTreeValues?: Array<number | null>;
+  tournamentTreeSourceIndices?: Array<number | null>;
+  tournamentTreeActiveIndices?: number[];
+  tournamentTreeBlueIndices?: number[];
+  tournamentOutputValues?: Array<number | null>;
+  tournamentOutputActiveIndices?: number[];
+  tournamentOutputBlueIndices?: number[];
+  tournamentOutputSortedIndices?: number[];
   stats: { comparisons: number; swaps: number };
   completed: boolean;
   description: string;

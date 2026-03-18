@@ -15,6 +15,7 @@ import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
 import { CombSortPage } from "@/pages/sorting/CombSortPage";
 import { CountingSortPage } from "@/pages/sorting/CountingSortPage";
 import { GnomeSortPage } from "@/pages/sorting/GnomeSortPage";
+import { TournamentSortPage } from "@/pages/sorting/TournamentSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms";
 import { HelmetProvider } from "react-helmet-async";
@@ -132,6 +133,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <GnomeSortPage />
+      </>
+    );
+  }
+
+  if (slug === "tournament-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <TournamentSortPage />
       </>
     );
   }

@@ -11,6 +11,7 @@ interface ArrayBinaryTreeCanvasProps {
   nodes: Array<ArrayBinaryTreeNode | null>;
   overlay?: ReactNode;
   maxVisibleNodes?: number;
+  nodeMaxYPercent?: number;
   className?: string;
 }
 
@@ -20,6 +21,7 @@ const getNodePosition = (
   index: number,
   maxDepth: number,
   visibleNodes: number,
+  nodeMaxYPercent: number,
 ): TreeNodePosition => {
   const safeDepth = Math.max(maxDepth, 1);
   const level = Math.floor(Math.log2(index + 1));
@@ -29,7 +31,10 @@ const getNodePosition = (
 
   return {
     x: ((positionInLevel + 1) / (nodesInLevel + 1)) * 100,
-    y: visibleNodes <= 1 ? 38 : ((level + 1) / (safeDepth + 1.8)) * 68,
+    y:
+      visibleNodes <= 1
+        ? nodeMaxYPercent / 2
+        : ((level + 1) / (safeDepth + 1.8)) * nodeMaxYPercent,
   };
 };
 
@@ -37,6 +42,7 @@ export function ArrayBinaryTreeCanvas({
   nodes,
   overlay,
   maxVisibleNodes = DEFAULT_MAX_VISIBLE_TREE_NODES,
+  nodeMaxYPercent = 68,
   className,
 }: ArrayBinaryTreeCanvasProps) {
   const visibleNodes = nodes.slice(0, maxVisibleNodes);
@@ -48,7 +54,7 @@ export function ArrayBinaryTreeCanvas({
 
   const maxDepth = Math.floor(Math.log2(Math.max(visibleNodes.length, 1)));
   const positions = visibleNodes.map((_, index) =>
-    getNodePosition(index, maxDepth, visibleNodes.length),
+    getNodePosition(index, maxDepth, visibleNodes.length, nodeMaxYPercent),
   );
 
   return (
