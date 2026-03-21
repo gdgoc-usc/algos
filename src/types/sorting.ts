@@ -1,15 +1,18 @@
 export type SortingAnimationFrame = {
   array: number[];
+  arrayLabel?: string;
   activeIndices: number[] | null;
   blueIndices?: number[];
   sortedIndices: number[];
   bucketValues?: number[];
+  bucketLabel?: string;
   bucketRangeStart?: number;
   bucketRangeEnd?: number;
   bucketActiveIndices?: number[];
   bucketBlueIndices?: number[];
   bucketSortedIndices?: number[];
   outputValues?: number[];
+  outputLabel?: string;
   outputActiveIndices?: number[];
   outputBlueIndices?: number[];
   outputSortedIndices?: number[];
