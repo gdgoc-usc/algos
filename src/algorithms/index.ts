@@ -98,7 +98,8 @@ export const algorithms: AlgorithmMetadata[] = [
     name: "Bucket Sort",
     category: "Sorting",
     description:
-      "Distributes values into buckets, sorts each bucket, then concatenates them into a final sorted array.",
+      "A distribution sorting algorithm that groups values into buckets, sorts the contents of each bucket, then concatenates the buckets to produce the final order.",
+    implemented: true,
   },
   {
     slug: "tournament-sort",

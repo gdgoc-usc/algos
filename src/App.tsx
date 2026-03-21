@@ -14,6 +14,7 @@ import { HeapSortPage } from "@/pages/sorting/HeapSortPage";
 import { ShellSortPage } from "@/pages/sorting/ShellSortPage";
 import { CombSortPage } from "@/pages/sorting/CombSortPage";
 import { CountingSortPage } from "@/pages/sorting/CountingSortPage";
+import { BucketSortPage } from "@/pages/sorting/BucketSortPage";
 import { GnomeSortPage } from "@/pages/sorting/GnomeSortPage";
 import { StrandSortPage } from "@/pages/sorting/StrandSortPage";
 import { TournamentSortPage } from "@/pages/sorting/TournamentSortPage";
@@ -121,6 +122,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <CountingSortPage />
+      </>
+    );
+  }
+
+  if (slug === "bucket-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <BucketSortPage />
       </>
     );
   }
