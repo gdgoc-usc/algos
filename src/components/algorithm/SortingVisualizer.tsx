@@ -51,7 +51,11 @@ const getLevelMaxValue = (
   level: VisualizationLevel,
   data: SortingAnimationFrame,
 ): number => {
-  if (level.key === "buckets") {
+  if (
+    level.key === "buckets" &&
+    level.rangeStart !== undefined &&
+    level.rangeEnd !== undefined
+  ) {
     return Math.max(data.array.length, 1);
   }
 
@@ -83,7 +87,7 @@ export function SortingVisualizer({
     ? [
         {
           key: "input",
-          label: "Input",
+          label: data.arrayLabel || "Input",
           values: data.array,
           activeIndices: data.activeIndices,
           blueIndices: data.blueIndices,
@@ -91,7 +95,7 @@ export function SortingVisualizer({
         },
         {
           key: "buckets",
-          label: "Buckets",
+          label: data.bucketLabel || "Buckets",
           values: data.bucketValues || [],
           rangeStart: data.bucketRangeStart,
           rangeEnd: data.bucketRangeEnd,
@@ -101,7 +105,7 @@ export function SortingVisualizer({
         },
         {
           key: "output",
-          label: "Output",
+          label: data.outputLabel || "Output",
           values: data.outputValues || [],
           activeIndices: data.outputActiveIndices,
           blueIndices: data.outputBlueIndices,
@@ -111,7 +115,7 @@ export function SortingVisualizer({
     : [
         {
           key: "input",
-          label: "Array",
+          label: data.arrayLabel || "Array",
           values: data.array,
           activeIndices: data.activeIndices,
           blueIndices: data.blueIndices,

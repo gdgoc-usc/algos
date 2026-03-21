@@ -84,6 +84,7 @@ export const algorithms: AlgorithmMetadata[] = [
     category: "Sorting",
     description:
       "A sorting algorithm that repeatedly extracts increasing strands and merges them into a sorted result.",
+    implemented: true,
   },
   {
     slug: "radix-sort",
