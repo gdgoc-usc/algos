@@ -1,7 +1,7 @@
 import { MonitorPlay } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
-interface AlgorithmDetailsProps {
+export interface AlgorithmDetailsProps {
   timeComplexity: string;
   spaceComplexity: string;
   description: string;

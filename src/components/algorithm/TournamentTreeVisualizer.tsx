@@ -2,11 +2,9 @@ import { useMemo } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Slider } from "@/components/ui/slider";
 import type { SortingAnimationFrame } from "@/types/sorting";
-import {
-  ArrayBinaryTreeCanvas,
-  TreeArrayStrip,
-  type TreeArrayStripItem,
-} from "@/components/algorithm/tree";
+import { ArrayBinaryTreeCanvas } from "@/components/algorithm/tree/ArrayBinaryTreeCanvas";
+import { TreeArrayStrip } from "@/components/algorithm/tree/TreeArrayStrip";
+import type { TreeArrayStripItem } from "@/components/algorithm/tree/types";
 
 interface TournamentTreeVisualizerProps {
   data: SortingAnimationFrame;

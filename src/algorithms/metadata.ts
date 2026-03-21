@@ -177,3 +177,8 @@ export const algorithms: AlgorithmMetadata[] = [
       "An algorithm for traversing or searching tree or graph data structures.",
   },
 ];
+
+export const getAlgorithmMetadata = (
+  slug: string,
+): AlgorithmMetadata | undefined =>
+  algorithms.find((algorithm) => algorithm.slug === slug);

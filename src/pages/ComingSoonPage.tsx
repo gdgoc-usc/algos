@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { MoveLeft, Construction } from "lucide-react";
-import { algorithms } from "@/algorithms";
+import { algorithms } from "@/algorithms/metadata";
 
 export function ComingSoonPage() {
   const { slug } = useParams();

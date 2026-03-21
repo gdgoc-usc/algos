@@ -11,7 +11,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 
-interface SortingControlsProps {
+export interface SortingControlsProps {
   isPlaying: boolean;
   isCompleted: boolean;
   onPlay: () => void;

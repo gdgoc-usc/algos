@@ -1,4 +1,4 @@
-import { algorithms, type AlgorithmCategory } from "@/algorithms";
+import { algorithms, type AlgorithmCategory } from "@/algorithms/metadata";
 import { GDG_INFO } from "@/lib/constants";
 import { CardItem } from "@/components/card-item";
 import { ModeToggle } from "@/components/mode-toggle";

@@ -26,18 +26,24 @@ To ensure consistency, every algorithm page implements a shared UI pattern:
 
 ## Data Flow: Step Generators
 
-Algorithms are implemented as **generators** or state machines that produce a sequence of "steps".
+Algorithms are implemented as pure **frame generators** that produce a sequence of immutable visualization steps. Route pages are thin wrappers that compose shared playback/state hooks with the correct generator and visualizer.
 
 - **Step**: An immutable snapshot or a defined patch event describing the state of the algorithm at a specific moment.
 - **Replayability**: The UI consumes these steps to render the visualization at any specific index, allowing for reliable forward/backward navigation.
+- **Playback Layer**: Shared hooks manage scrubbing, stepping, speed, randomization, and audio so sorting pages do not duplicate the same control logic.
 
 ## File Structure
 
 ```
 src/
-├── pages/          # Route components (Home, AlgorithmPage)
-├── algorithms/     # Algorithm logic (generators, metadata)
-├── components/     # Shared UI components (CanvasStage, ControlBar)
-├── lib/            # Utilities (randomizers, validators)
-└── styles/         # Global styles and font setups
+├── pages/                # Thin route/page wrappers
+├── algorithms/           # Metadata plus pure algorithm/frame generators
+│   └── sorting/
+│       ├── definitions/  # Single-file sorting algorithm definitions
+│       ├── shared/       # Cross-algorithm helpers and utilities
+│       └── */            # Multi-file algorithms with local helpers/phases
+├── components/           # Shared UI scaffolds and visualizers
+├── hooks/                # Shared playback/state hooks
+├── lib/                  # General utilities
+└── types/                # Shared type contracts
 ```

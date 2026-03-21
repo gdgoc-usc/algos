@@ -58,7 +58,7 @@ Suggested folder structure (simple, course-friendly):
 
 ## Milestones (minimum shippable)
 
-1. App shell: routing, layout, Home list populated from a single `algorithms/index.ts` registry.
+1. App shell: routing, layout, Home list populated from a single `algorithms/metadata.ts` registry.
 2. One fully-polished algorithm page (e.g., Bubble Sort) implementing the full “page contract”.
 3. Add 3–5 more algorithms reusing the same contract (fast to scale once the framework is right).
 4. UX polish: consistent controls, input validation, presets/examples, keyboard shortcuts (Space = play/pause, arrows = step).

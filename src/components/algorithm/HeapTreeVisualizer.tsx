@@ -4,10 +4,12 @@ import type { SortingAnimationFrame } from "@/types/sorting";
 import {
   ArrayBinaryTreeCanvas,
   DEFAULT_MAX_VISIBLE_TREE_NODES,
-  TreeArrayStrip,
-  type ArrayBinaryTreeNode,
-  type TreeArrayStripItem,
-} from "@/components/algorithm/tree";
+} from "@/components/algorithm/tree/ArrayBinaryTreeCanvas";
+import { TreeArrayStrip } from "@/components/algorithm/tree/TreeArrayStrip";
+import type {
+  ArrayBinaryTreeNode,
+  TreeArrayStripItem,
+} from "@/components/algorithm/tree/types";
 
 interface HeapTreeVisualizerProps {
   data: SortingAnimationFrame;

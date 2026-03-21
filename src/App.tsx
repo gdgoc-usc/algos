@@ -19,7 +19,7 @@ import { GnomeSortPage } from "@/pages/sorting/GnomeSortPage";
 import { StrandSortPage } from "@/pages/sorting/StrandSortPage";
 import { TournamentSortPage } from "@/pages/sorting/TournamentSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
-import { algorithms } from "@/algorithms";
+import { algorithms } from "@/algorithms/metadata";
 import { HelmetProvider } from "react-helmet-async";
 import { SEOHead } from "@/components/SEOHead";
 

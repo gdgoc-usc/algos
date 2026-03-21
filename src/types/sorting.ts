@@ -8,6 +8,11 @@ export type SortingBucketGroup = {
   sortedIndices?: number[];
 };
 
+export type SortingStats = {
+  comparisons: number;
+  swaps: number;
+};
+
 export type SortingAnimationFrame = {
   array: number[];
   arrayLabel?: string;
@@ -35,7 +40,26 @@ export type SortingAnimationFrame = {
   tournamentOutputActiveIndices?: number[];
   tournamentOutputBlueIndices?: number[];
   tournamentOutputSortedIndices?: number[];
-  stats: { comparisons: number; swaps: number };
+  stats: SortingStats;
   completed: boolean;
   description: string;
+};
+
+export type SortingFrameGenerator = (size: number) => SortingAnimationFrame[];
+
+export type SortingSoundSelector = (
+  frame: SortingAnimationFrame | undefined,
+) => number | undefined;
+
+export type SortingAlgorithmDetails = {
+  timeComplexity: string;
+  spaceComplexity: string;
+  description: string;
+};
+
+export type SortingAlgorithmDefinition = {
+  slug: string;
+  details: SortingAlgorithmDetails;
+  generateFrames: SortingFrameGenerator;
+  getSoundValue?: SortingSoundSelector;
 };
