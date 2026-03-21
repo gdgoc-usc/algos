@@ -93,6 +93,7 @@ export function HomePage() {
                       title={algo.name}
                       description={algo.description}
                       slug={algo.slug}
+                      icon={algo.icon}
                       implemented={algo.implemented}
                       color={categoryColor}
                     />

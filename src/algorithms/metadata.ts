@@ -1,3 +1,26 @@
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowDownToLine,
+  ArrowLeftRight,
+  ArrowUpDown,
+  Binary,
+  Boxes,
+  ChartColumnIncreasing,
+  Footprints,
+  GitBranch,
+  GitMerge,
+  Layers3,
+  Link2,
+  Network,
+  ScanSearch,
+  Search,
+  TreePine,
+  Trophy,
+  Waypoints,
+  Workflow,
+  Zap,
+} from "lucide-react";
+
 export type AlgorithmCategory =
   | "Sorting"
   | "Searching"
@@ -10,6 +33,7 @@ export interface AlgorithmMetadata {
   name: string;
   category: AlgorithmCategory;
   description: string;
+  icon: LucideIcon;
   implemented?: boolean;
 }
 
@@ -19,6 +43,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "bubble-sort",
     name: "Bubble Sort",
     category: "Sorting",
+    icon: ArrowUpDown,
     description:
       "Repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.",
     implemented: true,
@@ -27,6 +52,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "selection-sort",
     name: "Selection Sort",
     category: "Sorting",
+    icon: ScanSearch,
     description:
       "Divides the input list into two parts: a sorted sublist of items which is built up from left to right...",
     implemented: true,
@@ -35,6 +61,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "insertion-sort",
     name: "Insertion Sort",
     category: "Sorting",
+    icon: ArrowDownToLine,
     description: "Builds the final sorted array (or list) one item at a time.",
     implemented: true,
   },
@@ -42,6 +69,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "heap-sort",
     name: "Heap Sort",
     category: "Sorting",
+    icon: TreePine,
     description:
       "A comparison-based sorting technique based on Binary Heap data structure.",
     implemented: true,
@@ -50,6 +78,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "shell-sort",
     name: "Shell Sort",
     category: "Sorting",
+    icon: Layers3,
     description:
       "A generalized insertion sort that starts with large gaps and progressively reduces them to finish with a final insertion pass.",
     implemented: true,
@@ -58,6 +87,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "comb-sort",
     name: "Comb Sort",
     category: "Sorting",
+    icon: ArrowLeftRight,
     description:
       "An improved Bubble Sort that compares elements at a shrinking gap to eliminate turtles faster.",
     implemented: true,
@@ -66,6 +96,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "counting-sort",
     name: "Counting Sort",
     category: "Sorting",
+    icon: ChartColumnIncreasing,
     description:
       "A non-comparison sorting algorithm that counts occurrences of each value and rebuilds the array in order.",
     implemented: true,
@@ -74,6 +105,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "gnome-sort",
     name: "Gnome Sort",
     category: "Sorting",
+    icon: Footprints,
     description:
       "A simple sorting algorithm that moves out-of-order elements backward by swapping adjacent values until they are in place.",
     implemented: true,
@@ -82,6 +114,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "strand-sort",
     name: "Strand Sort",
     category: "Sorting",
+    icon: Workflow,
     description:
       "A sorting algorithm that repeatedly extracts increasing strands and merges them into a sorted result.",
     implemented: true,
@@ -90,6 +123,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "radix-sort",
     name: "Radix Sort",
     category: "Sorting",
+    icon: Binary,
     description:
       "A non-comparison sort that processes numbers digit by digit from least to most significant position.",
   },
@@ -97,6 +131,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "bucket-sort",
     name: "Bucket Sort",
     category: "Sorting",
+    icon: Boxes,
     description:
       "A distribution sorting algorithm that groups values into buckets, sorts the contents of each bucket, then concatenates the buckets to produce the final order.",
     implemented: true,
@@ -105,6 +140,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "tournament-sort",
     name: "Tournament Sort",
     category: "Sorting",
+    icon: Trophy,
     description:
       "Builds a tournament tree to repeatedly select the minimum element and produce a sorted sequence.",
     implemented: true,
@@ -113,6 +149,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "merge-sort",
     name: "Merge Sort",
     category: "Sorting",
+    icon: GitMerge,
     description:
       "An efficient, stable, comparison-based, divide and conquer sorting algorithm.",
   },
@@ -120,6 +157,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "quick-sort",
     name: "Quick Sort",
     category: "Sorting",
+    icon: Zap,
     description: "An efficient, general-purpose sorting algorithm.",
   },
 
@@ -128,6 +166,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "linear-search",
     name: "Linear Search",
     category: "Searching",
+    icon: Search,
     description:
       "Sequentially checks each element of the list until a match is found or the whole list has been searched.",
   },
@@ -135,6 +174,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "binary-search",
     name: "Binary Search",
     category: "Searching",
+    icon: Binary,
     description: "Finds the position of a target value within a sorted array.",
   },
 
@@ -143,6 +183,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "stack",
     name: "Stack",
     category: "Data Structures",
+    icon: Layers3,
     description:
       "Abstract data type that serves as a collection of elements, with two main principal operations: Push and Pop.",
   },
@@ -150,6 +191,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "queue",
     name: "Queue",
     category: "Data Structures",
+    icon: Waypoints,
     description:
       "A collection of entities that are maintained in a sequence and can be modified by the addition of entities at one end of the sequence and the removal of entities from the other end.",
   },
@@ -157,6 +199,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "linked-list",
     name: "Linked List",
     category: "Data Structures",
+    icon: Link2,
     description:
       "A linear collection of data elements whose order is not given by their physical placement in memory.",
   },
@@ -166,6 +209,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "bfs",
     name: "Breadth-First Search (BFS)",
     category: "Graphs",
+    icon: Network,
     description:
       "An algorithm for traversing or searching tree or graph data structures.",
   },
@@ -173,6 +217,7 @@ export const algorithms: AlgorithmMetadata[] = [
     slug: "dfs",
     name: "Depth-First Search (DFS)",
     category: "Graphs",
+    icon: GitBranch,
     description:
       "An algorithm for traversing or searching tree or graph data structures.",
   },
