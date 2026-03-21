@@ -1,9 +1,20 @@
+export type SortingBucketGroup = {
+  label: string;
+  values: number[];
+  rangeStart: number;
+  rangeEnd: number;
+  activeIndices?: number[];
+  blueIndices?: number[];
+  sortedIndices?: number[];
+};
+
 export type SortingAnimationFrame = {
   array: number[];
   arrayLabel?: string;
   activeIndices: number[] | null;
   blueIndices?: number[];
   sortedIndices: number[];
+  bucketGroups?: SortingBucketGroup[];
   bucketValues?: number[];
   bucketLabel?: string;
   bucketRangeStart?: number;
