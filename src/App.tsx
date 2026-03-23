@@ -18,6 +18,7 @@ import { BucketSortPage } from "@/pages/sorting/BucketSortPage";
 import { GnomeSortPage } from "@/pages/sorting/GnomeSortPage";
 import { StrandSortPage } from "@/pages/sorting/StrandSortPage";
 import { TournamentSortPage } from "@/pages/sorting/TournamentSortPage";
+import { MergeSortPage } from "@/pages/sorting/MergeSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
 import { algorithms } from "@/algorithms/metadata";
 import { HelmetProvider } from "react-helmet-async";
@@ -174,6 +175,19 @@ function AlgorithmRoute() {
           url={`/algorithms/${algorithm.slug}`}
         />
         <TournamentSortPage />
+      </>
+    );
+  }
+
+  if (slug === "merge-sort") {
+    return (
+      <>
+        <SEOHead
+          title={`${algorithm.name} - Algos`}
+          description={algorithm.description}
+          url={`/algorithms/${algorithm.slug}`}
+        />
+        <MergeSortPage />
       </>
     );
   }
