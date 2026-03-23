@@ -152,6 +152,7 @@ export const algorithms: AlgorithmMetadata[] = [
     icon: GitMerge,
     description:
       "An efficient, stable, comparison-based, divide and conquer sorting algorithm.",
+    implemented: true,
   },
   {
     slug: "quick-sort",
