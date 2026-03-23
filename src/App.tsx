@@ -1,9 +1,10 @@
 import {
   BrowserRouter as Router,
-  Routes,
   Route,
+  Routes,
   useParams,
 } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { HomePage } from "@/pages/HomePage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { ComingSoonPage } from "@/pages/ComingSoonPage";
@@ -20,9 +21,11 @@ import { StrandSortPage } from "@/pages/sorting/StrandSortPage";
 import { TournamentSortPage } from "@/pages/sorting/TournamentSortPage";
 import { MergeSortPage } from "@/pages/sorting/MergeSortPage";
 import { ThemeProvider } from "@/components/theme-provider";
-import { algorithms } from "@/algorithms/metadata";
-import { HelmetProvider } from "react-helmet-async";
+import { Layout } from "@/components/layout";
 import { SEOHead } from "@/components/SEOHead";
+import { ProjectAdditionToastController } from "@/components/project-addition-toast-controller";
+import { Toaster } from "@/components/ui/sonner";
+import { algorithms } from "@/algorithms/metadata";
 
 function AlgorithmRoute() {
   const { slug } = useParams();
@@ -204,15 +207,12 @@ function AlgorithmRoute() {
   );
 }
 
-import { Layout } from "@/components/layout";
-
-// ... existing imports
-
 export function App() {
   return (
     <HelmetProvider>
       <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
         <Router>
+          <ProjectAdditionToastController />
           <Layout>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -221,6 +221,7 @@ export function App() {
             </Routes>
           </Layout>
         </Router>
+        <Toaster />
       </ThemeProvider>
     </HelmetProvider>
   );
