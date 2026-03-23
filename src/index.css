@@ -169,3 +169,7 @@
 .animate-sorting-wave {
   animation: sorting-wave 0.5s ease-in-out forwards;
 }
+
+[data-sonner-toaster] {
+  font-family: "Excalifont", sans-serif;
+}
